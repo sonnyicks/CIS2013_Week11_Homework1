@@ -12,6 +12,8 @@ struct Car{
 
 Car user;
 
+char yesno = 'y';
+
 void print(Car);
 
 int main(){
@@ -23,6 +25,14 @@ int main(){
 	user.mph = 0;
 	
 	print(user);
+	cout << "Do you want to paint your car?";
+	cin >> yesno;
+	if ((yesno == 'y')||(yesno == 'Y')){
+		cout << "What color?";
+		cin >> user.color;
+	}
+	print(user);
+	
 	return 0;
 }
 
