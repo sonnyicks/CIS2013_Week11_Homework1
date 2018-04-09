@@ -2,43 +2,44 @@
 #include <cstring>
 using namespace std;
 
-struct Car{
+class Car{
+	public:
 	string color;
 	string make;
 	string model;
 	int year;
 	int mph;
+	bool running;
+	void user_choice(char);
+	void set_make(Car);
+	void set_model(Car);
+	void set_year(Car);
+	void start_car(bool);
+	void stop_car(bool);
+	void speed_change (Car);
 };
 
-Car user;
+class Operate{
+
+};
+
+Car user {"Blue", "Nissan", "Sentra", 2013, 0};
 
 char yesno = 'y';
 
-void print(Car);
+void print_car(Car);
 void instruct();
 
 int main(){
 	
-	user.color = "Blue";
-	user.make = "Nissan";
-	user.model = "Sentra";
-	user.year = 2013;
-	user.mph = 0;
-	
-	print(user);
-	cout << "Do you want to paint your car?";
-	cin >> yesno;
-	if ((yesno == 'y')||(yesno == 'Y')){
-		cout << "What color?";
-		cin >> user.color;
-	}
+	print_car(user);
 	instruct();
-	print(user);
+	print_car(user);
 	
 	return 0;
 }
 
-void print(Car a){
+void print_car(Car a){
 	cout << "Color: " << a.color << endl << "Make: " << a.make << endl << "Model: "
 		 << a.model << endl << "Year: " << a.year << endl << "Current speed: " 
 		 << a.mph << " MPH" << endl;
