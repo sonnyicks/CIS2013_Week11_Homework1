@@ -31,8 +31,8 @@ void choose(char);
 int main(){
 	
 	print_car(user);
-	instruct();
 	while (program_running){
+		instruct();
 		cout << "What would you like to do?: ";
 		cin >> user_choice;
 		choose(user_choice);
@@ -45,14 +45,16 @@ void print_car(Car a){
 	cout << "Color: " << a.color << endl << "Make: " << a.make << endl << "Model: "
 		 << a.model << endl << "Year: " << a.year << endl << "Current speed: " 
 		 << a.mph << " MPH" << endl << "The car is ";
-		 if (a.running==false){cout << "off." << endl;}
-		 else {cout << "on." << endl;}
+		 if (a.running==false){cout << "off." << endl << endl;}
+		 else {cout << "on." << endl << endl;}
 }
 
 void instruct(){
 	cout << "Select an action: \n" << "	set make (m)\n	set model (o)\n	set year (y)\n"
-		 << "	start car (s)\n 	stop car (S)\n	change speed (d)\n	print (p)\n";
-}
+		 << "	start car (s)\n 	stop car (S)\n	change speed (d)\n	print (p)\n"
+		 << endl;
+	 }		 
+
 
 void choose(char a){
 	if (a=='m'){user.set_make();}
@@ -63,7 +65,6 @@ void choose(char a){
 	else if (a=='d'){user.speed_change();}
 	else if (a=='p'){
 		print_car(user);
-		instruct();
 	}
 	else{cout << "Invalid Entry -";}
 }
@@ -84,15 +85,26 @@ void Car::start_car(){
 	if (user.running==true){
 		cout << "Car is already running." << endl;
 	}
-	else {user.running=true;}
+	else {
+		user.running=true;
+		cout << "Car turned on." << endl;
+	}
 }
 void Car::stop_car(){
 	if (user.running==false){cout << "Car is already off." << endl;}
-	else {user.running=false;}}
+	else if (user.mph!=0){cout << "Your car is still moving.  Bring your speed to 0 first."
+						  << endl;
+					  }
+	else {
+		user.running=false;
+		 cout << "Car turned off." << endl;}
+	 }
 	
 void Car::speed_change(){
-	cout << "How fast do you want to go?: ";
+	if (!running){cout << "You need to start your car first." << endl;}
+	else {cout << "How fast do you want to go?: ";
 	cin >> user.mph;
+	}
 }
 
 
