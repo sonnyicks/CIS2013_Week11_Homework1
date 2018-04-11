@@ -53,7 +53,7 @@ void print_car(Car a){
 void instruct(){
 	cout << "Select an action: \n" << "|*set make (m)\n|*set model (o)\n|*set year (y)\n"
 		 << "|*start car (s)\n|*stop car (S)\n|*change speed (d)\n|*print (p)\n"
-		 << "|*????????? (x)" << endl << "___________________" << endl;
+		 << "|*OOOH, SHINY BUTTON! (x)" << endl << "___________________________" << endl;
 	 }		 
 
 
