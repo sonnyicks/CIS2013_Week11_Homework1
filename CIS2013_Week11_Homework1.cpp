@@ -16,6 +16,7 @@ class Car{
 	void start_car();
 	void stop_car();
 	void speed_change();
+	void explode();
 };
 
 Car user {"Blue", "Nissan", "Sentra", 2013, 0};
@@ -50,9 +51,9 @@ void print_car(Car a){
 }
 
 void instruct(){
-	cout << "Select an action: \n" << "	set make (m)\n	set model (o)\n	set year (y)\n"
-		 << "	start car (s)\n 	stop car (S)\n	change speed (d)\n	print (p)\n"
-		 << endl;
+	cout << "Select an action: \n" << "|*set make (m)\n|*set model (o)\n|*set year (y)\n"
+		 << "|*start car (s)\n|*stop car (S)\n|*change speed (d)\n|*print (p)\n"
+		 << "|*????????? (x)" << endl << "___________________" << endl;
 	 }		 
 
 
@@ -63,9 +64,9 @@ void choose(char a){
 	else if (a=='s'){user.start_car();}
 	else if (a=='S'){user.stop_car();}
 	else if (a=='d'){user.speed_change();}
-	else if (a=='p'){
-		print_car(user);
-	}
+	else if (a=='p'){print_car(user);}
+	else if (a=='x'){user.explode();
+	program_running=false;}
 	else{cout << "Invalid Entry -";}
 }
 
@@ -105,6 +106,24 @@ void Car::speed_change(){
 	else {cout << "How fast do you want to go?: ";
 	cin >> user.mph;
 	}
+}
+
+void Car::explode(){
+	cout << "Self Destructing..." << endl << "3...\n2...\n1...\n...\n"
+		 << "  *      *        *" << endl
+		 << "   x     xx      x " << endl
+		 << "    xx    xx   xx" << endl
+		 << "      xxXX  xxx" << endl
+		 << "      OXOXOXOXO" << endl
+		 << "***xxXXOX8888OXOXxx**" << endl
+		 << "      OXOXOXOXO" << endl
+		 << "      xxXX  xxx" << endl
+		 << "    xx    xx   xx" << endl
+		 << "   x     xx      x " << endl
+		 << " *      *        *" << endl << endl
+		 << "         BOOM!" << endl << "You and your car exploded...";
+		 
+		  
 }
 
 
